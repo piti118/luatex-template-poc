@@ -1,0 +1,16 @@
+{
+    "data": [
+        {
+            "name": "A",
+            "data": "AAA"
+        },
+        {
+            "name": "B",
+            "data": "BBB"
+        },
+        {
+            "name": "C",
+            "data": "CCC"
+        }
+    ]
+}

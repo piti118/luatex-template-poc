@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[thai,english]{babel}
+\usepackage{fontspec}
+\usepackage{luacode}
+% Set main font to a Thai-compatible font (requires XeLaTeX or LuaLaTeX)
+\setmainfont{TH Sarabun New}
+
+\begin{document}
+
+สวัสดีครับ นี่คือข้อความภาษาไทยในเอกสาร LaTeX
+
+
+% Lua code to read JSON and output as a LaTeX table
+\begin{luacode*}
+local json = require("dkjson")
+local file = io.open("example.json", "r")
+local content = file:read("*a")
+file:close()
+local data = utilities.json.tolua(content)
+tex.print("\\begin{tabular}{|c|c|}\\hline")
+tex.print("Name & Data \\\\ \\hline")
+for i, entry in ipairs(data.data) do
+  print(entry.name)
+  tex.print(entry.name .. " & " .. entry.data .. " \\\\")
+end
+tex.print("\\end{tabular}")
+
+\end{luacode*}
+
+\end{document}

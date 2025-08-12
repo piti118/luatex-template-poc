@@ -11,21 +11,19 @@
 สวัสดีครับ นี่คือข้อความภาษาไทยในเอกสาร LaTeX
 
 
-% Lua code to read JSON and output as a LaTeX table
+% Lua code to read JSON, use etlua template, and output a table
 \begin{luacode*}
-local json = require("dkjson")
-local file = io.open("example.json", "r")
-local content = file:read("*a")
-file:close()
-local data = utilities.json.tolua(content)
-tex.print("\\begin{tabular}{|c|c|}\\hline")
-tex.print("Name & Data \\\\ \\hline")
-for i, entry in ipairs(data.data) do
-  print(entry.name)
-  tex.print(entry.name .. " & " .. entry.data .. " \\\\")
-end
-tex.print("\\end{tabular}")
+local lustache = require "lustache.lua"
 
+view_model = {
+  title = "Joe",
+  calc = function ()
+    return 2 + 4
+  end
+}
+
+output = lustache:render("{{title}} spends {{calc}}", view_model)
+tex.print(output)
 \end{luacode*}
 
 \end{document}

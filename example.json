@@ -2,15 +2,18 @@
     "data": [
         {
             "name": "A",
-            "data": "AAA"
+            "data": "AAA",
+            "pets": ["Dog", "Cat"]
         },
         {
             "name": "B",
-            "data": "BBB"
+            "data": "BBB",
+            "pets": ["Bird"]
         },
         {
             "name": "C",
-            "data": "CCC"
+            "data": "CCC",
+            "pets": ["Cow", "Sheep", "Pig"]
         }
     ]
 }

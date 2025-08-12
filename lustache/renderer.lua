@@ -399,7 +399,7 @@ function renderer:new()
   local out = { 
     cache         = {},
     partial_cache = {},
-    tags          = {"{{", "}}"}
+    tags          = {"<<", ">>"}
   }
   return setmetatable(out, { __index = self })
 end

@@ -16,12 +16,16 @@ local patterns = {
 }
 
 local html_escape_characters = {
-  ["&"] = "&amp;",
-  ["<"] = "&lt;",
-  [">"] = "&gt;",
-  ['"'] = "&quot;",
-  ["'"] = "&#39;",
-  ["/"] = "&#x2F;"
+  ["#"] = "\\#",
+  ["$"] = "\\$",
+  ["%"] = "\\%",
+  ['&'] = "\\&",
+  ["_"] = "\\_",
+  ["{"] = "\\{",
+  ["}"] = "\\}",
+  ["~"] = "\\textasciitilde{}",
+  ["^"] = "\\textasciicircum{}",
+  ["/"] = "\\textbackslash{}"
 }
 
 local block_tags = {
@@ -297,7 +301,7 @@ function renderer:_name(name, context, escape)
   str = tostring(str)
 
   if escape then
-    return string_gsub(str, '[&<>"\'/]', function(s) return html_escape_characters[s] end)
+    return string_gsub(str, '[#$%%&_{}~^\\]', function(s) return html_escape_characters[s] end)
   end
 
   return str

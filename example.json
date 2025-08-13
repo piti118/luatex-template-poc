@@ -14,6 +14,11 @@
             "name": "C",
             "data": "CCC",
             "pets": ["Cow", "Sheep", "Pig"]
+        },
+        {
+            "name": "D",
+            "data": "#$&_{}~aa%bb^\\",
+            "pets": ["Cow", "Sheep", "Pig"]
         }
     ]
 }

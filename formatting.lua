@@ -21,15 +21,40 @@ function strip(str)
   return str
 end
 
+function toFilter(f)
+  return function(str, render)
+    local rendered = render(strip(str))
+    if not rendered or rendered == "" then return "" end
+    return f(rendered)
+  end
+end
+
 function comma(str, render)
-  local rendered = render(strip(str))
-  local number = tonumber(rendered)
-  if not number then return rendered end
+  local number = tonumber(str)
+  if not number then return str end
   local formatted = format_int(number)
   return formatted
 end
 
+function dateDMY(date)
+  if not date then return "" end
+  local year, month, day = date:match("(%d+)-(%d+)-(%d+)")
+  if not year or not month or not day then return date end
+  return string.format("%02d/%02d/%04d", tonumber(day), tonumber(month), tonumber(year))
+end
+
+function datetimeDMYHHMM(date)
+  if not date then return "" end
+  local year, month, day, hour, minute = date:match("(%d+)-(%d+)-(%d+)T(%d+):(%d+)")
+  if not year or not month or not day or not hour or not minute then return date end
+  return string.format("%02d/%02d/%04d %02d:%02d", tonumber(day), tonumber(month), tonumber(year), tonumber(hour), tonumber(minute))
+end
+
 function enrich(entry)
   entry.surroundX = surroundX
-  entry.comma = comma
+  entry.comma = toFilter(comma)
+  entry.date = toFilter(dateDMY)
+  entry.dateDMY = toFilter(dateDMY)
+  entry.datetime = toFilter(datetimeDMYHHMM)
+  entry.datetimeDMYHHMM = toFilter(datetimeDMYHHMM)
 end

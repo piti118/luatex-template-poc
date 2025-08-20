@@ -3,13 +3,14 @@
     {
       "name": "A",
       "data": "AAA",
+      "timestamp": "2024-08-20T10:53:22+07:00",
       "pets": ["Dog", "Cat"],
       "images": ["images/1.png", "images/2.png"],
       "transactions": [
         {
           "food_name": "Dog Food",
           "amount": 2,
-          "total_price": 20.0,
+          "total_price": 1234.56,
           "date_purchased": "2023-10-01"
         },
         {
@@ -29,6 +30,7 @@
     {
       "name": "B",
       "data": "BBB",
+      "timestamp": "2025-08-20T00:00:00Z",
       "pets": ["Bird"],
       "images": ["images/1.png", "images/2.png"],
       "transactions": [
@@ -55,6 +57,7 @@
     {
       "name": "C",
       "data": "CCC",
+      "timestamp": "2025-08-20T00:00:00Z",
       "pets": ["Cow", "Sheep", "Pig"],
       "images": ["images/1.png", "images/2.png"],
       "transactions": [
@@ -81,6 +84,7 @@
     {
       "name": "D",
       "data": "#$&_{}~aa%bb^\\",
+      "timestamp": "2025-08-20T00:00:00Z",
       "pets": ["Cow", "Sheep", "Pig"],
       "images": ["images/1.png", "images/2.png"],
       "transactions": [

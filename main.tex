@@ -16,41 +16,13 @@
 
 % Lua code to read JSON, use etlua template, and output a table
 \begin{luacode*}
-function dump(o)
-   if type(o) == 'table' then
-      local s = '{ '
-      for k,v in pairs(o) do
-         if type(k) ~= 'number' then k = '"'..k..'"' end
-         s = s .. '['..k..'] = ' .. dump(v) .. ','
-      end
-      return s .. '} '
-   else
-      return tostring(o)
-   end
-end
+local t = require "tgtex.lua"
+local json = t.readJSON("example.json")
+local template_content = t.readFile("template.tex")
 
-local lustache = require "lustache.lua"
-local formatting = require "formatting.lua"
-local file = io.open("example.json", "r")
-local content = file:read("*a")
-file:close()
-local data = utilities.json.tolua(content).data
-
-local template_file = io.open("template.tex", "r")
-local template_content = template_file:read("*a")
-
-
-
-template_file:close()
-for i, entry in ipairs(data) do
-  enrich(entry)
-  output = lustache:render(template_content, entry)
-  local lines = {}
-  for line in output:gmatch("[^\r\n]+") do
-    table.insert(lines, line) 
-    -- new line doesn't get translated correctly
-  end
-  tex.print(table.unpack(lines))
+for i, entry in ipairs(json.data) do
+  local output = t.renderTemplate(template_content, entry)
+  t.printTEX(output)
 end
 \end{luacode*}
 

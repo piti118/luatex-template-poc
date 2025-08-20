@@ -1,3 +1,5 @@
+local lustache = require "lustache.lua"
+
 M = {}
 
 function M.readFile(fname)
@@ -15,7 +17,6 @@ function M.readJSON(fname)
 end
 
 function M.renderTemplate(template, entry)
-  local lustache = require "lustache.lua"
   entry = M.enrich(entry)
   local output = lustache:render(template, entry)
   return output

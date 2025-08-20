@@ -4,6 +4,7 @@
       "name": "A",
       "data": "AAA",
       "pets": ["Dog", "Cat"],
+      "images": ["images/1.png", "images/2.png"],
       "transactions": [
         {
           "food_name": "Dog Food",
@@ -29,6 +30,7 @@
       "name": "B",
       "data": "BBB",
       "pets": ["Bird"],
+      "images": ["images/1.png", "images/2.png"],
       "transactions": [
         {
           "food_name": "Bird Seed",
@@ -54,6 +56,7 @@
       "name": "C",
       "data": "CCC",
       "pets": ["Cow", "Sheep", "Pig"],
+      "images": ["images/1.png", "images/2.png"],
       "transactions": [
         {
           "food_name": "Cow Feed",
@@ -79,6 +82,7 @@
       "name": "D",
       "data": "#$&_{}~aa%bb^\\",
       "pets": ["Cow", "Sheep", "Pig"],
+      "images": ["images/1.png", "images/2.png"],
       "transactions": [
         {
           "food_name": "Cow Feed",

@@ -1,5 +1,7 @@
 \section{ <<name>> }
+<<#surroundX>><<name>><</surroundX>
 <<data>>
+
 \subsection{Pets}
 <<#pets>>
 Name: <<.>>
@@ -13,3 +15,11 @@ Age       & 5     \\
 \caption{Pet Details}
 \end{table}
 <</pets>>
+
+<<#images>>
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.3\textwidth]{<<.>>}
+\caption{Pet Image}
+\end{figure}
+<</images>>
